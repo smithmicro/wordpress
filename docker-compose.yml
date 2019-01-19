@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  wordpress:
+    build: .
+    image: smithmicro/wordpress:5.0
+    ports:
+      - 8080:80
+    volumes:
+      - wp-html:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_PASSWORD: wordpress!-password*
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_CONFIG_EXTRA: |
+        /* Get WP_HOME and WP_SITEURL from environment variables that we set below */
+        define( 'WP_HOME', getenv('WP_HOME') );
+        define( 'WP_SITEURL', getenv('WP_SITEURL') );
+      WP_HOME: http://localhost:8080
+      WP_SITEURL: http://localhost:8080
+  mysql:
+    image: mariadb:10.3
+    volumes:
+      - wp-mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress!-password*
+volumes:
+  wp-html:
+  wp-mysql:
