@@ -1,4 +1,4 @@
-FROM wordpress:5.1
+FROM wordpress:5.0
 
 LABEL maintainer="dsperling@smithmicro.com"
 
