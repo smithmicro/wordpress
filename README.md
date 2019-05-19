@@ -3,7 +3,7 @@ WordPress Docker Image
 
 ## Features
 * Derived from official Docker Image
-* Builds for 4.9 and 5.0
+* Builds for 4.9 and up
 * Supports large uploads
 * Uses WORDPRESS_CONFIG_EXTRA to create new variables for WP_HOME and WP_SITEURL
 
